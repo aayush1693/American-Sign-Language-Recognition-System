@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  asl-recognition:
+    build: .
+    volumes:
+      - .:/app
+    environment:
+      - VIDEO_DIR=/app/path/to/WLASL/videos
+      - ANNOTATIONS_FILE=/app/path/to/WLASL/annotations.json
+      - VOCAB_SIZE=30
+    command: python models/train-transformer.py
